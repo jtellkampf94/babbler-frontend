@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import App from "./components/app/App";
 import { createGlobalStyle } from "styled-components";
 import { Provider } from "react-redux";
@@ -27,11 +27,10 @@ const GlobalStyle = createGlobalStyle`
     color: black;
   }
 `;
-
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
   <Provider store={store}>
     <GlobalStyle />
     <App />
-  </Provider>,
-  document.getElementById("root")
+  </Provider>
 );
